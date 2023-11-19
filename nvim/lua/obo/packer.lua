@@ -68,4 +68,6 @@ return require('packer').startup(function(use)
   }
 
   use { 'pocco81/auto-save.nvim' }
+
+  use { 'nvim-treesitter/nvim-treesitter-context' }
 end)

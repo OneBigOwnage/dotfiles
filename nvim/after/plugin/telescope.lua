@@ -17,7 +17,7 @@ require('telescope').setup({
     },
   },
   pickers = {
-    git_files = { theme = 'dropdown' },
+    git_files = { theme = 'dropdown', show_untracked = true },
     find_files = { theme = 'dropdown' },
     live_grep = { theme = 'dropdown' },
     lsp_document_symbols = { theme = 'dropdown' },

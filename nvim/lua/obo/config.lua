@@ -4,6 +4,13 @@ vim.o.scrolloff = 8
 -- Relative line numbers
 vim.o.relativenumber = true
 
+-- Show current line number
+vim.o.number = true
+
+-- Highlight the current line number, but not the entire line.
+vim.o.cursorlineopt = 'number'
+vim.o.cursorline = true
+
 vim.g.clipboard = {
   name = 'wsl-clipboard',
   copy = {
@@ -47,7 +54,7 @@ vim.cmd([[
 vim.o.incsearch = true
 
 -- Replace the (relative) line numbers with a sign when there is one.
-vim.o.signcolumn = 'number'
+vim.o.signcolumn = 'yes'
 
 -- vim.cmd([[
 --   augroup vimrc-clear-trailing-empty-lines
@@ -70,4 +77,12 @@ vim.o.signcolumn = 'number'
 --     end
 --   end,
 -- })
+
+local cmp = require('cmp')
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<CR>'] = cmp.mapping.confirm({ select = false })
+  })
+})
 
