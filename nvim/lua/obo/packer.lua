@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
 
   use('tpope/vim-fugitive')
 
-  use('MunifTanjim/nougat.nvim')
+  use('nvim-lualine/lualine.nvim')
 
   use({
     "rebelot/kanagawa.nvim",
