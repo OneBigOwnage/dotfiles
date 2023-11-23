@@ -28,3 +28,11 @@ require 'mason-lspconfig'.setup({
     lsp_zero.default_setup,
   }
 })
+
+require'lspconfig'.intelephense.setup {
+  before_init = function(params)
+    params.processId = vim.NIL
+  end,
+  cmd = require'lspcontainers'.command('intelephense'),
+  root_dir = require'lspconfig/util'.root_pattern("composer.json", ".git", vim.fn.getcwd()),
+}

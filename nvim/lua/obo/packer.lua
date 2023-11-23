@@ -75,4 +75,6 @@ return require('packer').startup(function(use)
     'dhruvasagar/vim-prosession',
     requires = { 'tpope/vim-obsession' }
   }
+
+  use { 'lspcontainers/lspcontainers.nvim' }
 end)
