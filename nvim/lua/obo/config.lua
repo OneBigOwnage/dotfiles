@@ -86,3 +86,6 @@ cmp.setup({
   })
 })
 
+-- Long running undo
+vim.opt.undofile = true
+vim.opt.undodir = os.getenv('HOME') .. "/.config/nvim/undodir"
