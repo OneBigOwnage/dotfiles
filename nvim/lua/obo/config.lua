@@ -56,28 +56,6 @@ vim.o.incsearch = true
 -- Replace the (relative) line numbers with a sign when there is one.
 vim.o.signcolumn = 'yes'
 
--- vim.cmd([[
---   augroup vimrc-clear-trailing-empty-lines
---     autocmd!
---
---     autocmd bufWritePre *.* $put _ | $;?\\(^\\s*$\\)\\@!?+1,$d
---
---     augroup END
--- ]])
-
--- Add new line to the end of the file
--- vim.api.nvim_create_autocmd({"BufWritePre"}, {
---   group = vim.api.nvim_create_augroup('UserOnSave', {}),
---   pattern = '*',
---   callback = function()
---     local n_lines = vim.api.nvim_buf_line_count(0)
---     local last_nonblank = vim.fn.prevnonblank(n_lines)
---     if last_nonblank <= n_lines then vim.api.nvim_buf_set_lines(0,
---       last_nonblank, n_lines, true, { '' })
---     end
---   end,
--- })
-
 local cmp = require('cmp')
 
 cmp.setup({
@@ -86,6 +64,11 @@ cmp.setup({
   })
 })
 
+-- Allow case insensitive autocomplete of commands
+vim.opt.ignorecase = true
+
 -- Long running undo
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv('HOME') .. "/.config/nvim/undodir"
+
+
