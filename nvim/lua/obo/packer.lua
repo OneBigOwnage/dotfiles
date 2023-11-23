@@ -70,4 +70,9 @@ return require('packer').startup(function(use)
   use { 'pocco81/auto-save.nvim' }
 
   use { 'nvim-treesitter/nvim-treesitter-context' }
+
+  use {
+    'dhruvasagar/vim-prosession',
+    requires = { 'tpope/vim-obsession' }
+  }
 end)
