@@ -77,4 +77,6 @@ return require('packer').startup(function(use)
   }
 
   use { 'lspcontainers/lspcontainers.nvim' }
+
+  use { 'nvim-tree/nvim-web-devicons' }
 end)
