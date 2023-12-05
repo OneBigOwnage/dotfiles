@@ -1,0 +1,7 @@
+[user]
+	name = Niek van den Bos
+	email = niekvandenbos@hotmail.com
+[core]
+	fileMode = false
+[credential]
+	helper = store
