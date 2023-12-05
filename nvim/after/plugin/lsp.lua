@@ -23,6 +23,7 @@ require 'mason-lspconfig'.setup({
     'lua_ls',
     'intelephense',
     'tsserver',
+    'rust_analyzer',
   },
   handlers = {
     lsp_zero.default_setup,
@@ -35,4 +36,12 @@ require'lspconfig'.intelephense.setup {
   end,
   cmd = require'lspcontainers'.command('intelephense'),
   root_dir = require'lspconfig/util'.root_pattern("composer.json", ".git", vim.fn.getcwd()),
+}
+
+require'lspconfig'.rust_analyzer.setup {
+  before_init = function(params)
+    params.processId = vim.NIL
+  end,
+  cmd = require'lspcontainers'.command('rust_analyzer', { network = "bridge" }),
+  root_dir = require'lspconfig/util'.root_pattern("Cargo.toml", "rust-project.json", ".git", vim.fn.getcwd()),
 }
