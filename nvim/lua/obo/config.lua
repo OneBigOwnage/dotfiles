@@ -71,15 +71,3 @@ vim.opt.ignorecase = true
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv('HOME') .. "/.config/nvim/undodir"
 
-
--- I don't want to see the command line when it isn't in use.
--- But when it is in use, I still want to see the status line.
-vim.cmd([[
-  augroup always-show-status-line
-    autocmd!
-
-    autocmd CmdLineEnter * silent! :set cmdheight=1
-
-    autocmd CmdlineLeave * silent! :set cmdheight=0
-  augroup END
-]])
