@@ -21,13 +21,6 @@ return require('packer').startup(function(use)
 
   use('nvim-lualine/lualine.nvim')
 
-  use({
-    "rebelot/kanagawa.nvim",
-    config = function()
-      vim.cmd('colorscheme kanagawa')
-    end
-  })
-
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
