@@ -40,6 +40,15 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'EdenEast/nightfox.nvim',
+    config = function()
+      vim.cmd("colorscheme nightfox")
+      vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
+      vim.cmd("highlight NormalFloat guibg=NONE ctermbg=NONE")
+    end
+  }
+
+  use {
     'goolord/alpha-nvim',
     config = function()
       require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
