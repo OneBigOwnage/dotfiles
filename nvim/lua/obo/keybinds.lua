@@ -14,3 +14,5 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.goto_next);
 vim.keymap.set("n", "<leader><C-d>", vim.diagnostic.goto_prev);
 
+vim.keymap.set("n", "<leader>gp", "<cmd>Telescope prosession<CR>");
+
