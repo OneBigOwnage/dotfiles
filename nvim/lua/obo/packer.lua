@@ -85,4 +85,6 @@ return require('packer').startup(function(use)
   use { 'onsails/lspkind-nvim' }
 
   use { 'RRethy/vim-illuminate' }
+
+  use { 'stevearc/dressing.nvim' }
 end)
