@@ -5,3 +5,5 @@
 	fileMode = false
 [credential]
 	helper = store
+[push]
+	autoSetupRemote = true
