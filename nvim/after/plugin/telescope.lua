@@ -41,6 +41,12 @@ vim.keymap.set('n', '<leader>r', function()
   }))
 end)
 
+vim.keymap.set('n', 'gr', function()
+  builtin.lsp_references(vim.tbl_deep_extend('force', defaults, {
+    -- Overrides
+  }))
+end)
+
 vim.keymap.set('n', '<leader>R', function()
   builtin.lsp_dynamic_workspace_symbols(vim.tbl_deep_extend('force', defaults, {
     -- Overrides
