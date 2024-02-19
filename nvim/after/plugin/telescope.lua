@@ -58,6 +58,8 @@ require('telescope').setup({
     mappings = {
       i = {
         ["<esc>"] = actions.close,
+        ["<C-j>"] = actions.cycle_history_next,
+        ["<C-k>"] = actions.cycle_history_prev,
       },
     },
   },
@@ -67,4 +69,3 @@ require('telescope').setup({
     }
   },
 })
-
