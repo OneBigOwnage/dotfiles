@@ -1,4 +1,3 @@
-
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>v", vim.cmd.Ex)
@@ -16,3 +15,4 @@ vim.keymap.set("n", "<leader><C-d>", vim.diagnostic.goto_prev);
 
 vim.keymap.set("n", "<leader>gp", "<cmd>Telescope prosession<CR>");
 
+vim.keymap.set("n", "<leader>q", ":bd<CR>");
