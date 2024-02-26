@@ -15,4 +15,5 @@ vim.keymap.set("n", "<leader><C-d>", vim.diagnostic.goto_prev);
 
 vim.keymap.set("n", "<leader>gp", "<cmd>Telescope prosession<CR>");
 
-vim.keymap.set("n", "<leader>q", ":bd<CR>");
+vim.keymap.set("n", "<leader>w", ":bd<CR>");
+vim.keymap.set("n", "<leader>W", ":%bd<CR>");
