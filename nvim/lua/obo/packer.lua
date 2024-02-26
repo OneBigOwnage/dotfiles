@@ -95,4 +95,15 @@ return require('packer').startup(function(use)
   }
 
   use { 'hedyhli/outline.nvim' }
+
+  use {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+    },
+  }
 end)
