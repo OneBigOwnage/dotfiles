@@ -56,13 +56,6 @@ vim.o.incsearch = true
 -- Replace the (relative) line numbers with a sign when there is one.
 vim.o.signcolumn = 'yes'
 
-local cmp = require('cmp')
-
-cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = false })
-  })
-})
 
 -- Allow case insensitive autocomplete of commands
 vim.opt.ignorecase = true

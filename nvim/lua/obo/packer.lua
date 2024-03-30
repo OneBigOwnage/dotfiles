@@ -114,4 +114,11 @@ return require('packer').startup(function(use)
       "rcarriga/nvim-notify",
     }
   }
+
+  use { "zbirenbaum/copilot.lua" }
+
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+  }
 end)
