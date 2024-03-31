@@ -2,14 +2,20 @@ local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 
-local function createBranch(branch)
+local createBranch = vim.schedule_wrap(function(branch)
   if branch == nil or branch == '' then
     print('Branch name cannot be empty')
     return
   end
+
   vim.cmd('Git checkout -b ' .. branch)
-  vim.cmd('Git push --quiet --set-upstream origin ' .. branch)
-end
+
+  local push_async = vim.schedule_wrap(function()
+    vim.cmd('Git push --quiet --set-upstream origin ' .. branch)
+  end)
+
+  push_async()
+end)
 
 local function git_branches()
   builtin.git_branches({
@@ -20,13 +26,12 @@ local function git_branches()
     winblend = 5,
     sorting_strategy = 'ascending',
     attach_mappings = function(prompt_bufnr, map)
-      -- <C-J> Is ctrl+enter
-      map('i', '<C-y>', function()
+      map('i', '<leader><CR>', function()
         createBranch(action_state.get_current_line())
         actions.close(prompt_bufnr)
       end)
 
-      map('i', '<C-d>', function()
+      map('i', '<leader>d', function()
         local branch = action_state.get_selected_entry().value
         local should_delete = vim.fn.confirm(
           'Are you sure you want to delete this branch? It may contain unmerged changes!', 'Yes\nNo', 2)
