@@ -121,4 +121,6 @@ return require('packer').startup(function(use)
     "zbirenbaum/copilot-cmp",
     after = { "copilot.lua" },
   }
+
+  use { "nvimtools/none-ls.nvim", requires = { 'nvim-lua/plenary.nvim' } }
 end)

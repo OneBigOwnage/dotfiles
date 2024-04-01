@@ -4,14 +4,13 @@ lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   lsp_zero.default_keymaps({ buffer = bufnr })
-
 end)
 
 require('lspconfig').lua_ls.setup({
   settings = {
     Lua = {
       diagnostics = {
-        globals = { 'vim'}
+        globals = { 'vim' }
       }
     }
   }
@@ -30,18 +29,26 @@ require 'mason-lspconfig'.setup({
   }
 })
 
-require'lspconfig'.intelephense.setup {
+require 'lspconfig'.intelephense.setup {
   before_init = function(params)
     params.processId = vim.NIL
   end,
-  cmd = require'lspcontainers'.command('intelephense'),
-  root_dir = require'lspconfig/util'.root_pattern("composer.json", ".git", vim.fn.getcwd()),
+  cmd = require 'lspcontainers'.command('intelephense'),
+  root_dir = require 'lspconfig/util'.root_pattern("composer.json", ".git", vim.fn.getcwd()),
 }
 
-require'lspconfig'.rust_analyzer.setup {
+require 'lspconfig'.rust_analyzer.setup {
   before_init = function(params)
     params.processId = vim.NIL
   end,
-  cmd = require'lspcontainers'.command('rust_analyzer', { network = "bridge" }),
-  root_dir = require'lspconfig/util'.root_pattern("Cargo.toml", "rust-project.json", ".git", vim.fn.getcwd()),
+  cmd = require 'lspcontainers'.command('rust_analyzer', { network = "bridge" }),
+  root_dir = require 'lspconfig/util'.root_pattern("Cargo.toml", "rust-project.json", ".git", vim.fn.getcwd()),
 }
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.prettierd
+  },
+})
