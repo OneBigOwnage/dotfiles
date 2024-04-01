@@ -2,13 +2,18 @@ local autosave = require('auto-save')
 
 autosave.setup({
   execution_message = {
-    message = ''
+    message = "",
   },
-  condition = function(buf)
-    -- Only attempt to auto-save normal buffers
-    -- This is a fix for auto-save trying to "Save" the Harpoon UI
-    if vim.bo[buf].buftype ~= "" then
-      return false
+  condition = function(buffer)
+    local utils = require("auto-save.utils.data")
+
+    -- Don't attempt to auto-save the Harpoon UI and Noice rename UI.
+    if vim.fn.getbufvar(buffer, "&modifiable") == 1
+        and utils.not_in(vim.fn.getbufvar(buffer, "&filetype"), { "noice", "harpoon" })
+    then
+      return true
     end
+
+    return false
   end
 })
