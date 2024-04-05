@@ -1,4 +1,5 @@
 local lsp_zero = require('lsp-zero')
+local lspconfig = require('lspconfig')
 
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
@@ -6,21 +7,10 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-require('lspconfig').lua_ls.setup({
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
-})
-
 require('mason').setup({})
 require 'mason-lspconfig'.setup({
   ensure_installed = {
     'lua_ls',
-    'intelephense',
     'tsserver',
     'rust_analyzer',
   },
@@ -29,11 +19,11 @@ require 'mason-lspconfig'.setup({
   }
 })
 
-require 'lspconfig'.intelephense.setup {
+lspconfig.phpactor.setup {
   before_init = function(params)
     params.processId = vim.NIL
   end,
-  cmd = require 'lspcontainers'.command('intelephense'),
+  cmd = require 'lspcontainers'.command('phpactor', { image = 'phpactor' }),
   root_dir = require 'lspconfig/util'.root_pattern("composer.json", ".git", vim.fn.getcwd()),
 }
 
@@ -49,6 +39,8 @@ local null_ls = require("null-ls")
 
 null_ls.setup({
   sources = {
-    null_ls.builtins.formatting.prettierd
+    null_ls.builtins.formatting.prettierd.with({
+      filetypes = { "html" },
+    }),
   },
 })
