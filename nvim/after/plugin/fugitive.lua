@@ -66,5 +66,5 @@ vim.keymap.set('n', '<leader>s', function()
     return
   end
 
-  vim.cmd("G fetch | G Pull | G push --quiet")
+  vim.cmd("G fetch | G pull | G push --quiet")
 end)
