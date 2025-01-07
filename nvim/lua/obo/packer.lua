@@ -8,9 +8,12 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.4',
-    -- or                            , branch = '0.1.x',
-    requires = { { 'nvim-lua/plenary.nvim' } }
+    'nvim-telescope/telescope.nvim',
+    branch = "master",
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { "BurntSushi/ripgrep" },
+    }
   }
 
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -40,15 +43,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'EdenEast/nightfox.nvim',
-    config = function()
-      vim.cmd("colorscheme nightfox")
-      vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
-      vim.cmd("highlight NormalFloat guibg=NONE ctermbg=NONE")
-    end
-  }
-
-  use {
     'goolord/alpha-nvim',
     config = function()
       require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
@@ -72,6 +66,11 @@ return require('packer').startup(function(use)
   use { 'pocco81/auto-save.nvim' }
 
   use { 'nvim-treesitter/nvim-treesitter-context' }
+
+  use {
+    'nvim-treesitter/playground',
+    cmd = 'TSPlaygroundToggle'
+  }
 
   use {
     'dhruvasagar/vim-prosession',
@@ -123,4 +122,6 @@ return require('packer').startup(function(use)
   }
 
   use { "nvimtools/none-ls.nvim", requires = { 'nvim-lua/plenary.nvim' } }
+
+  use { "catppuccin/nvim", as = "catppuccin" }
 end)
