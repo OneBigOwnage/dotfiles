@@ -124,4 +124,6 @@ return require('packer').startup(function(use)
   use { "nvimtools/none-ls.nvim", requires = { 'nvim-lua/plenary.nvim' } }
 
   use { "catppuccin/nvim", as = "catppuccin" }
+
+  use { "stevearc/oil.nvim" }
 end)

@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>v", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>v", "<CMD>Oil --float<CR>")
 
 -- Being able to move lines up and down
 -- by holding Alt + either j or k,
