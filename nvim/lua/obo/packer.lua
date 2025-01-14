@@ -126,4 +126,11 @@ return require('packer').startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }
 
   use { "stevearc/oil.nvim" }
+
+  use {
+    "sphamba/smear-cursor.nvim",
+    config = function ()
+      require('smear_cursor').setup()
+    end,
+  }
 end)
