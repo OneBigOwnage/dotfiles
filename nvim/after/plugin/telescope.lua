@@ -31,6 +31,7 @@ end)
 
 vim.keymap.set('n', '<leader>F', function()
   builtin.live_grep(vim.tbl_deep_extend('force', defaults, {
+    additional_args = function() return {"--hidden"} end,
     -- Overrides
   }))
 end)
