@@ -26,7 +26,7 @@ lspconfig.phpactor.setup {
   root_dir = require 'lspconfig/util'.root_pattern("composer.json", ".git", vim.fn.getcwd()),
 }
 
-require 'lspconfig'.rust_analyzer.setup {
+lspconfig.rust_analyzer.setup {
   before_init = function(params)
     params.processId = vim.NIL
   end,
