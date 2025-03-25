@@ -2,8 +2,13 @@
 	name = Niek van den Bos
 	email = niekvandenbos@hotmail.com
 [core]
+	# This makes Git ignore any changes to file permissions, as those are generally not wanted to be committed.
 	fileMode = false
 [credential]
 	helper = store
 [push]
+	# This makes Git automatically link new local branches to same-named remote branches so you can omit the "-u origin branch-name" part on the first "git push".
 	autoSetupRemote = true
+[status]
+	# This makes Git show individual untracked files in untracked directories instead of collapsing the untracked directory.
+	showUntrackedFiles = all
