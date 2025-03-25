@@ -133,4 +133,12 @@ return require('packer').startup(function(use)
       require('smear_cursor').setup()
     end,
   }
+
+  use { 'mfussenegger/nvim-dap' }
+
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+
+  use { 'theHamsta/nvim-dap-virtual-text' }
+
+  use { 'nvim-telescope/telescope-dap.nvim' }
 end)
