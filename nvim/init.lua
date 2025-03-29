@@ -1,4 +1,8 @@
-require("obo")
+require("config")
+require("keybinds")
 
--- vim.cmd('source ./clipboard.vim')
--- vim.o.clipboard = 'unnamed'
+-- Set runtime path to include lazy.nvim
+vim.opt.rtp:prepend(vim.fn.stdpath("config") .. "/lazy/lazy.nvim")
+
+-- Load plugins from 'lua/plugins/'
+require("lazy").setup("plugins")
