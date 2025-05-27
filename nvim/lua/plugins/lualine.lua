@@ -44,8 +44,8 @@ return {
       options = {
         icons_enabled = true,
         theme = theme,
-        component_separators = { left = "εé▒", right = "εé│" },
-        section_separators = { left = "εé▒", right = "εé│" },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
       },
       sections = {
         lualine_a = { 'mode' },

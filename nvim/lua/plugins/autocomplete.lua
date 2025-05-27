@@ -12,7 +12,7 @@ return {
         fields = { 'kind', 'abbr', 'menu' },
         format = lspkind.cmp_format({
           mode = 'symbol',
-          symbol_map = { Copilot = "∩äô" }
+          symbol_map = { Copilot = "" }
         }),
       },
       sources = {
