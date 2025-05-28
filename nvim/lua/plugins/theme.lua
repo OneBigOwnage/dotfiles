@@ -1,4 +1,3 @@
-
   return {
     "catppuccin/nvim", as = "catppuccin",
     config = function()
