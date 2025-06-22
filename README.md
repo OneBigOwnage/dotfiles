@@ -14,7 +14,7 @@ ln -s dotfiles/tmux/.tmux.conf .tmux.conf
 ln -s dotfiles/nvim/ nvim
 ```
 
-Install neovim:
+Install Neovim:
 
 ```bash
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
@@ -30,3 +30,11 @@ Add the following to your `.bashrc` file:
 export PATH="$PATH:/opt/nvim/"
 alias vim="nvim"
 ```
+
+Install lazy.nvim
+```bash
+cd ~/.config/nvim/lazy
+git clone https://github.com/folke/lazy.nvim.git
+```
+
+You should now be ready to use Neovim by running `vim`. You may need to install additional dependencies. Use `:checkhealth` to find any missing dependencies.
